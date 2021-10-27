@@ -31,6 +31,7 @@ let time = 5000,
     images = document.querySelectorAll("#slider img"),
     max = images.length;
 
+/* Fazendo a transição entre as imagens */
 function netxImage() {
 
     images[currentImagemIndex].classList.remove("selected")
@@ -50,3 +51,8 @@ function start() {
 }
 
 window.addEventListener("load", start)
+
+/* Posicionando o relório dentro da div das imagens */
+function run() {
+    document.getElementsByClassName("clock-container")
+}
