@@ -21,19 +21,46 @@ const updateClock = () => {
     clockContainer.innerHTML = clockHTML
 }
 
-const mudarImagem = () => {
-    document.body.style.backgroundImage = "url('https://picsum.photos/600/300')"
+/* Chamando a função de atualização do relogio a cada 1000 milissegundos = 1 segundo */
+setInterval(updateClock, 1000)
+
+
+/* Mudando a imagem  */
+let time = 5000,
+    currentImagemIndex = 0, 
+    images = document.querySelectorAll("#slider img"),
+    max = images.length;
+
+/* Fazendo a transição entre as imagens */
+function netxImage() {
+
+    images[currentImagemIndex].classList.remove("selected")
+
+    currentImagemIndex++
+
+    if(currentImagemIndex >= max)
+        currentImagemIndex = 0
+
+    images[currentImagemIndex].classList.add("selected")
 }
 
 function start() {
     setInterval(() => {
-        mudarImagem()
-    }, 2000)
+        netxImage()
+    }, time)
 }
 
 window.addEventListener("load", start)
 
+function run() {
+    document.getElementsByClassName("clock-container")
+}
 
-/* Chamando a função de atualização do relogio a cada 1000 milissegundos = 1 segundo */
-setInterval(updateClock, 1000)
-setInterval(mudarImagem)
+
+/* Para fazer o relogio ficar mudando de posição*/
+
+function animacao(id) {
+    document.getElementById(id).style.animation = 'animation: position 2s linear';
+}
+
+setInterval(animationPosition, 5000)
